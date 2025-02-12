@@ -20,7 +20,6 @@ app.set('view engine', 'ejs');
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/owners', ownersRouter);
+app.use('/', (req, res) => res.send('Home Page'));
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+app.listen(3001, () => console.log('Server is running on port 3001'));
