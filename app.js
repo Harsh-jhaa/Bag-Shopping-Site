@@ -6,6 +6,7 @@ import db from './config/mongoose-connection.js';
 import ownersRouter from './routes/ownersRouter.js';
 import productsRouter from './routes/productsRouter.js';
 import usersRouter from './routes/usersRouter.js';
+import indexRouter from './routes/index.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -20,6 +21,6 @@ app.set('view engine', 'ejs');
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/owners', ownersRouter);
-app.use('/', (req, res) => res.send('Home Page'));
+app.use('/', indexRouter);
 
 app.listen(3001, () => console.log('Server is running on port 3001'));

@@ -1,10 +1,14 @@
 import mongoose from 'mongoose';
 import debug from 'debug';
+import config from 'config';
 
 const dbgr = debug('development:mongoose');
 
-const db = mongoose
-  .connect('mongodb://127.0.0.1:27017/poject-1-mongoose')
+// setting the db url as dynamic depending on the environment (development, production, test)
+// see the config folder for more details
+// config.get sees the environment and gets the appropriate url accordingly
+mongoose
+  .connect(`${config.get('MONGODB_URI')}/poject-1-mongoose`)
   .then(() => {
     dbgr('connectefd to database');
   })
@@ -12,4 +16,4 @@ const db = mongoose
     dbgr(err);
   });
 
-export default db;
+export default mongoose.connection;

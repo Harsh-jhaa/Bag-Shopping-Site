@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const userSchema = mongoose.Schema({
   fullName: String,
   email: String,
@@ -11,7 +10,7 @@ const userSchema = mongoose.Schema({
     type: Array,
     default: [],
   },
-  isadmin: Boolean,
+
   orders: {
     type: Array,
     default: [],
