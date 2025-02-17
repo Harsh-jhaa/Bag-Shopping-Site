@@ -1,9 +1,17 @@
 import express from 'express';
-
+import { registerUser, loginUser,logoutUser } from '../controllers/authController.js';
 const router = express.Router();
 
-const usersRouter = router.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.send('User Router');
 });
+// registering a new user customer
+router.post('/register', registerUser);
 
-export default usersRouter;
+//login an user
+router.post('/login', loginUser);
+
+//logout a user
+router.get('/logout', logoutUser);
+
+export default router;
